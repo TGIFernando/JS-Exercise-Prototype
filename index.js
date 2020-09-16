@@ -9,14 +9,14 @@
 
 // EXAMPLE SOLUTION CODE:
 function Airplane(name) {
-  this.name = name;
-  this.isFlying = false;
+    this.name = name;
+    this.isFlying = false;
 }
-Airplane.prototype.takeOff = function () {
-  this.isFlying = true;
+Airplane.prototype.takeOff = function() {
+    this.isFlying = true;
 };
-Airplane.prototype.land = function () {
-  this.isFlying = false;
+Airplane.prototype.land = function() {
+    this.isFlying = false;
 };
 
 
@@ -39,9 +39,36 @@ Airplane.prototype.land = function () {
         + It should return a string with `name` and `age`. Example: "Mary, 50"
 */
 
-function Person() {
-
+function Person(name, age) {
+    this.name = name;
+    this.age = age;
+    this.stomach = [];
 }
+Person.prototype.eat = function(food) {
+    if (this.stomach.length < 10) {
+        this.stomach.push(food);
+    } else {
+        console.log("Too full to eat..")
+    }
+};
+Person.prototype.poop = function() {
+    for (let i = -1; i <= this.stomach.length; i++) {
+        this.stomach.pop();
+    }
+};
+Person.prototype.toString = function() {
+    return `${this.name}, ${this.age}`
+};
+
+/**let x = new Person("Fernando", "18");
+x.eat('food');
+x.eat('food');
+x.eat('food');
+console.log(x.stomach);
+x.poop();
+console.log(x.stomach);
+console.log(x.toString());**/
+
 
 /*
   TASK 2
@@ -87,9 +114,9 @@ function Baby() {
 ///////// END OF CHALLENGE /////////
 ///////// END OF CHALLENGE /////////
 if (typeof exports !== 'undefined') {
-  module.exports = module.exports || {}
-  if (Airplane) { module.exports.Airplane = Airplane }
-  if (Person) { module.exports.Person = Person }
-  if (Car) { module.exports.Car = Car }
-  if (Baby) { module.exports.Baby = Baby }
+    module.exports = module.exports || {}
+    if (Airplane) { module.exports.Airplane = Airplane }
+    if (Person) { module.exports.Person = Person }
+    if (Car) { module.exports.Car = Car }
+    if (Baby) { module.exports.Baby = Baby }
 }
