@@ -91,6 +91,15 @@ function Car(model, milesPerGallon) {
 Car.prototype.fill = function(gal) {
     this.tank += gal;
 };
+Car.prototype.drive = function(dis) {
+    this.m = this.milesPerGallon * this.tank;
+    this.odometer = this.m - dis;
+    if (this.odometer < 0) {
+        return `I ran out of fuel at ${this.odometer} miles!`;
+    } else {
+        return (this.tank = this.odometer / this.milesPerGallon);
+    }
+};
 /**let y = new Car("Honda", 25);
 console.log(y);
 y.fill(15);
@@ -119,10 +128,10 @@ console.log(z.play());**/
   TASK 4
 
   In your own words explain the four principles for the "this" keyword below:
-  1. 
-  2. 
-  3. 
-  4. 
+  1. New Binding: if "this" is in a constructor function it belongs to the constructor
+  2. Implicit Binding: IF a function is called in an object "this" belongs to the object
+  3. Global Binding: "this" is applied to the window
+  4. Explicit Binding: When you use the call or apply method.
 */
 
 
