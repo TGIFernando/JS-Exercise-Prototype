@@ -48,7 +48,7 @@ Person.prototype.eat = function(food) {
     if (this.stomach.length < 10) {
         this.stomach.push(food);
     } else {
-        console.log("Too full to eat..")
+        return "Too full to eat.."
     }
 };
 Person.prototype.poop = function() {
@@ -84,10 +84,17 @@ console.log(x.toString());**/
         + The `drive` method should return a string "I ran out of fuel at x miles!" x being `odometer`.
 */
 
-function Car() {
-
+function Car(model, mPG) {
+    this.tank = 0;
+    this.odometer = 0;
 }
-
+Car.prototype.fill = function(gal) {
+    this.tank = gal;
+};
+/**let y = new Car("Honda", 25);
+console.log(y);
+y.fill(15);
+console.log(y);**/
 /*
   TASK 3
     - Write a Baby constructor subclassing Person.
